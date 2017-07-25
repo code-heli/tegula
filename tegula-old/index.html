@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Inscriptiones Tegularum</title>
+	<link href="https://fonts.googleapis.com/css?family=Cardo|Quicksand:300,400" rel="stylesheet">
+	<style type="text/css">
+		body {
+			margin: 0; padding: 0; border: 0; width: 100%; min-height: 100vh; overflow-y: scroll; font-family: 'Calibri', sans-serif; font-size: 110%; 
+		}
+		.wrapper {
+			max-width: 1800px; text-align: center
+		}
+		.navigation {
+			background-color: white; position: fixed; top: 0; left: 0; min-height: 100vh; min-width: 250px; width: auto; border-right: 1px solid lightgrey; z-index: 90; font-family: 'Quicksand', sans-serif;
+		}
+		.navigation h1 {
+			font-size: 170%; position: fixed; top: 10px; left: 15px; font-family: 'Cardo', serif; letter-spacing: 1.6px; background-color: white; padding: 20px 20px 25px 20px;
+		}
+		.navigation a {
+			color: black; text-decoration: none;
+		}
+		.navigation a:hover {
+			color: #B06432;
+		}
+		.navigation ul {
+			text-align: right; position: absolute; top: 35%; left: 0; min-width: 250px; background-color: white; padding: 10px 0 10px 45px;
+		}
+		.navigation ul li {
+			list-style-type: none; margin: 10px 10px;
+		}
+		.navigation ul li:hover:before {
+			content: ''; border: 1px solid lightgrey; margin: 0 10px 0 0;
+		}
+		/*.navigation ul li a {
+			color: black; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 100%;
+		}*/
+		body button {
+			color: black; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 95%; background-color: rgba(0,0,0,0); border: none; font-weight: 300; cursor: pointer;
+		}
+
+		.navigation-small {
+			display: none; background-color: silver; min-height: 100vh; width: 70px; position: fixed; top: 0; left: 0;
+		}
+
+		.navigation-small img {
+			width: 140%; height: auto;
+		}
+
+		.navigation-small ul {
+			position: absolute; top: 40%; left: 0; padding: 0 20px;
+		}
+
+		.navigation-small ul li {
+			list-style-type: none; font-size: 200%
+		}
+
+		.content {
+			position: fixed; top: 150px; left: 400px; min-width: 65%; max-width: 70%;background-color: white; text-align: justify; padding: 10px 20px; font-size: 95%;
+		}
+
+		.content h2 {
+			font-family: 'Cardo', serif; font-size: 145%;
+		}
+
+		#content-projekt, #content-kontakt, #content-tile {
+			display: none;
+		}
+
+		#content-kontakt a {
+			color: #B06432;
+		}
+
+		#content-kontakt img {
+			position: absolute; right: 120px; top: 70px; height: auto; width: 20%
+		}
+
+		.contact-card {
+			padding: 0 0 30px 0;
+		}
+
+		#content-suche {
+			color: black; background-color: rgba(255, 255, 255, 0); z-index: 80;
+		}
+
+		td#submit {
+			text-align: right; padding: 10px 0 0 0;
+
+		}
+
+
+		input[type="input"] {
+			border: none; border-bottom: 1px solid lightgrey; color: grey; padding: 2px 0 2px 5px; margin: 5px 0; font-family: inherit; width: 350px
+		}
+
+		input[type="submit"] {
+			background-color: white; padding: 5px; color: black; width: 80px; cursor: pointer; border: 1px solid lightgrey; color: grey;
+		}
+
+		input[type="submit"]:hover {
+			box-shadow: 2.5px 2.5px 2px silver;
+		}
+
+		#landing-img {
+			position: fixed; top: 60px; left: 900px; height: 100vh; width: 1000px; z-index: 0;
+			background-image: url("landing-img-blur.jpg");
+			background-size: 70%; background-repeat: no-repeat; opacity: 0.9;
+
+		}
+
+		#content-tile {
+			position: absolute; top: 100px; left: 500px; padding: 0 0 100px 0;
+		}
+
+		#content-tile a {
+			color: #B06432;
+		}
+
+		#content-tile table {
+			width: 500px;
+		}
+		#content-tile table span {
+			color: grey; font-size: 95%; padding: 0 0 0 5px;
+		}
+
+		#content-tile table button {
+			border: none; background-color: rgba(0, 0, 0, 0); color: grey; cursor: pointer;
+		}
+		#content-tile table#intern {
+			display: none
+		}
+
+		table#intern th {
+			width: 165px; 
+		}
+
+		#content-tile th{
+			color: lightgrey; font-size: 85%; padding: 0 20px 0 0; letter-spacing: 2px;  
+		}
+
+		#content-tile th#section {
+			background-color: lightgrey; color: white; padding: 2px 5px; font-size: 100%;
+		}
+
+		#content-tile table#img {
+			position: absolute; left: 600px; top: 25px; font-size: 70%; width: 250px;
+		}
+
+		table#img img {
+			 width: 100%; height: auto;
+		}
+
+		table#img span {
+			 font-weight: bold; color: grey; padding: 0 5px 0 0;
+		}
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(
+	function() {
+		$("#karte").click(function() {
+			$(".navigation").slideToggle();
+			$(".navigation-small").show();
+		});
+		$("#suche").click(function() {
+			$("#content-suche").slideToggle();
+			$("#landing-img").slideToggle();
+		});
+		$("#projekt").click(function() {
+			$("#content-projekt").slideToggle();
+		});
+		$("#kontakt").click(function() {
+			$("#content-kontakt").slideToggle();
+		});
+		$("#tile").click(function() {
+			$("#content-tile").slideToggle();
+		});
+		$("#more").click(function() {
+			$("#intern").show();
+		});
+
+
+});
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="navigation">
+			<h1><a href="">Inscriptiones Tegularum</a></h1>
+			<ul>
+				<li><button id="karte">Karte</button></li>
+				<li><button id="suche">Suche</button></li>
+				<li><button id="tile">Tile</button></li>
+				<li><button id="projekt">Über das Projekt</button></li>
+				<li><button id="kontakt">Kontakt</button></li>
+			</ul>
+		</div>
+		<!--Navigation Ende-->
+
+		<div class="navigation-small">
+			<img src="logo.png">
+			<ul>
+				<li><button id="menu">&equiv;</button></li>
+			</ul>
+		</div>
+
+		<div class="content" id="landing-img">
+
+		</div>
+
+		<div class="content" id="content-suche">
+			<h2>Einfache Suche</h2>
+			<form method="POST">
+				<table>
+					<tr>
+						<td><input type="input" name="nummer" placeholder="Nummer"></td>
+					</tr>
+					<tr>
+						<td><input type="input" name="produzent" placeholder="Produzent"></td>
+					</tr>
+					<tr>
+						<td><input type="input" name="stempel" placeholder="Stempel (Umschrift)"></td>
+					</tr>
+					<tr>
+						<td><input type="input" name="ziegelart" placeholder="Ziegelart"></td>
+					</tr>
+					<tr>
+						<td><input type="input" name="verwahrort" placeholder="Verwahrort"></td>
+					</tr>
+					<tr>
+						<td><input type="input" name="fundort" placeholder="Fundort"></td>
+					</tr>
+					<tr>
+						<td id="submit"><input type="submit" name="suchen" value="Suchen">
+					</tr>
+				</table>
+			</form>
+
+		</div>
+
+
+		<div class="content" id="content-projekt">
+			<h2>Über das Projekt</h2>
+			<p>
+				Gestempelte römische Ziegel sind eine wichtige Fundgattung zur Lokalisierung römischer Siedlungen, Gebäude und Infrastruktur, aber auch um wirtschaftliche Beziehungen zu rekonstruieren. Darüber hinaus lösen die Produktionsstempel auch Fragen zur Stationierung römischer Truppen in den Provinzen. Es ist bislang kaum möglich eine Übersicht über die immens hohe Anzahl an bisher gefundenen Ziegelstempeln zu erhalten. Daher ist unser Ziel alle publizierten Daten aus dem römischen Imperium zu sammeln, zu kartieren und einer breiten Öffentlichkeit zugänglich zu machen.
+			</p>
+			<p>
+				Integriert sind darin unter anderem auch alle Ziegelstempel von Vindobona (Wien) auf Basis der verdienstvollen Arbeiten von Barnabas Lőrincz sowie die Ziegel aus dem Statthalterpalast in Aquincum (Budapest), bearbeitet von Zoltán Havas (Aquincum Múzeum).
+			</p>
+			<p>
+				Eingearbeitete Literatur:
+			</p>
+			<p>
+				U. Brandl, Untersuchungen zu den Ziegelstempeln römischer Legionen in den nordwestlichen Provinzen des Imperium Romanum. Katalog der Sammlung Julius B. Fritzemeier. Passauer Universitätsschriften zur Archäologie 6 (Rahden/Westf. 1999).
+			</p>
+			<p>
+				J. Musil/Ch. Gugl/M. Mosser, Die Ziegelstempel der Ausgrabungen 1968 – 1977 im Legionslager Carnuntum. In: Ch. Gugl/R. Kastler (Hrsg.), Legionslager Carnuntum – Ausgrabungen 1968–1977. RLÖ 45 (Wien 2007).
+			</p>
+			<p>
+				J. Szilágyi, Inscriptiones tegularum Pannonicarum. Dissertationes Pannonicae 2, 1 (Budapest 1933).
+			</p>
+			<p>
+				J. Szilágyi, A Dáciai erödrendszer helyörségei és a katonai téglabélyegek (Die Besatzungen des Verteidigungssystems von Dazien und ihre Ziegelstempel). Dissertationes Pannonicae 2, 21 (Budapest 1946). 
+			</p>
+		</div>
+
+	<div class="content" id="content-kontakt">
+			<div class="contact-card">
+				<h2>Redaktion</h2>
+				<p>
+					<b>Martin Mosser</b><br>
+					Museen der Stadt Wien – Stadtarchäologie<br>
+					Obere Augartenstraße 26–28/Zi 224<br>
+					A-1020 Wien<br>
+					E-Mail: <a href="">martin.mosser@stadtarchaeologie.at</a><br>
+					Web: <a href="www.wien.gv.at/archaeologie" target="blank">www.wien.gv.at/archaeologie</a>
+				</p>
+				<img src="logo stadt-arch-wien.jpg">
+			</div>
+
+			<div class="contact-card">
+				<h2>Technik</h2>
+				<p>
+					<b>Jakob Egger</b><br>
+					Egger Apps<br>
+					Domgasse 10<br>
+					A-4020 Linz<br>
+					E-Mail: <a href="">jakob@eggerapps.at</a><br>
+					Web: <a href="www.eggerapps.at" target="blank">www.eggerapps.at</a>
+				</p>
+				<img src="logo stadt-arch-wien.jpg">
+			</div>
+			
+		</div>
+
+
+		<div class="content" id="content-tile">
+			<h2>Datenblatt</h2>
+			<table>
+				<tr>
+					<th>ID-Nummer</th>
+					<td>1 <span>(Lörincz Nr. 0801)</span></td>
+				</tr>
+				<tr>
+					<th>Produzent</th>
+					<td>legio X gemina</td>
+				</tr>
+				<tr>
+					<th>Stempel (Umschrift)</th>
+					<td>LXGP°[</td>
+				</tr>
+				<tr>
+					<th>Stempel (Eigenschaften)</th>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th>Ziegelart</th>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th colspan="2" id="section">Fundort</th>
+				</tr>
+				<tr>
+					<td>Wien 01 <span>Vindobona</span></td>
+				</tr>
+				<tr>
+					<th>Bezirk/Bundesland/Staat</th>
+					<td>-/Wien/Österreich(Austria)</td>
+				</tr>
+				<tr>
+					<th>Fundstelle</th>
+					<td>Parisergasse 4</td>
+				</tr>
+				<tr>
+					<th>Fundstjahr</th>
+					<td>1907</td>
+				</tr>
+				<tr>
+					<th>Römische Provinz</th>
+					<td>Pannonia</td>
+				</tr>
+				<tr>
+					<th>Territorium</th>
+					<td>LEG</td>
+				</tr>
+				<tr>
+					<th colspan="2" id="section">Verwahrort</th>
+				</tr>
+				<tr>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th>Bezirk/Bundesland/Staat</th>
+					<td>-/Wien/Österreich(Austria)</td>
+				</tr>
+				<tr>
+					<th>Museum</th>
+					<td>Wien Museum Karlsplatz</td>
+				</tr>
+				<tr>
+					<th>Iventarnummer</th>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th>Verwahrungsumstände</th>
+					<td>verschollen</td>
+				</tr>
+				<tr>
+					<th colspan="2" id="section">Maße</th>
+				</tr>
+				<tr>
+					<th>Länge</th>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th>Breite</th>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th>Dicke</th>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th>Durchmesser</th>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th colspan="2" id="section">&nbsp;</th>
+				</tr>
+				<tr>
+					<th>Literatur</th>
+					<td>Kenner 1909, 51b, Fig. 16e, 56b; ITP 45 Nr. 6 add.</td>
+				</tr>
+				<tr>
+					<th>Anmerkung</th>
+					<td>Die Frage ist, ob alle Ziegelstempel bei Kenner 1909 Fig. 16 vor Parisergasse 4 gefunden wurden?</td>
+				</tr>
+				<tr>
+					<th colspan="2" id="section">Wissenschaftliche Bearbeitung</th>
+				</tr>
+				<tr>
+					<th>Ansprechpartner</th>
+					<td>
+						<b>Barnabás Lörincz</b><br>
+						Eötvös Loránd-Universität Budapest, Seminar für Alte Geschichte<br>
+						<a href="">blorinc@ludens.elte.hu</a>
+						<br><br>
+						<b>Martin Mosser</b><br>
+						MA 7 - Stadtarchäologie Wien<br>
+						<a href="">mos@m07.magwien.gv.at</a>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="2" id="section">Interne Daten
+					<button id="more">&#8582;</button>
+				</tr>
+				<table id="intern">
+					<tr>
+						<th>kartiert</th>
+						<td>nein</td>
+					</tr>
+					<tr>
+						<th>vidi</th>
+						<td>nein</td>
+					</tr>
+					<tr>
+						<th>Grabungscode</th>
+						<td>190701</td>
+					</tr>
+				</table>
+			</table>
+			
+
+
+			<table id="img">
+				<tr>
+					<td><img src="12_03.jpg"></td>
+				</tr>
+				<tr>
+					<td>
+						<span>Bildnachweis</span> © MA 7 - Stadtarchäologie Wien
+					</td>
+				</tr>
+				<tr>
+					<td><span>Bild-ID</span> 12_03</td>
+				</tr>
+			</table>
+		</div>
+
+
+
+	</div>
+</body>
+</html>
