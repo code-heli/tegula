@@ -1,0 +1,152 @@
+html, body {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-family: "Arial", sans-serif; }
+
+#wrapper {
+  width: 100%;
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  position: relative; }
+  #wrapper #map {
+    position: absolute;
+    top: 5vh;
+    bottom: 0;
+    width: 100%;
+    height: 95vh;
+    z-index: 50; }
+  #wrapper #header {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 100%;
+            flex: 1 100%;
+    background-color: white;
+    max-height: 50px;
+    z-index: 100;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap; }
+    #wrapper #header #logo {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 40%;
+              flex: 1 40%;
+      margin: 7px 0 7px 7%;
+      text-align: left; }
+      #wrapper #header #logo h1 {
+        margin: 0;
+        font-family: "Palatino Linotype", "Times New Roman", serif;
+        letter-spacing: 1.5px;
+        font-size: 150%; }
+        #wrapper #header #logo h1 a {
+          text-decoration: none;
+          color: #454545; }
+    #wrapper #header #default-navigation {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 40%;
+              flex: 1 40%;
+      text-align: right;
+      margin: 0 7% 0 0; }
+      #wrapper #header #default-navigation ul li {
+        list-style-type: none;
+        text-transform: uppercase;
+        margin: 0 5px;
+        display: inline-block;
+        font-size: 100%;
+        padding: 0 10px 13px 10px; }
+        #wrapper #header #default-navigation ul li a {
+          text-decoration: none;
+          color: darkgrey; }
+        #wrapper #header #default-navigation ul li a:hover, #wrapper #header #default-navigation ul li a:active {
+          color: #454545; }
+      @media screen and (max-width: 1000px) {
+        #wrapper #header #default-navigation {
+          display: none; } }
+    #wrapper #header #small-navigation {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 40%;
+              flex: 1 40%;
+      display: none;
+      text-align: right;
+      margin: 5px 7% 0 0; }
+      #wrapper #header #small-navigation button {
+        height: 45px;
+        width: 100px;
+        border: none;
+        background-color: white; }
+      @media screen and (max-width: 1000px) {
+        #wrapper #header #small-navigation {
+          display: block; } }
+  #wrapper #content {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 100%;
+            flex: 1 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid white;
+    -webkit-box-shadow: 5px 0 7px grey;
+            box-shadow: 5px 0 7px grey;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    z-index: 90; }
+    #wrapper #content #suche {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 40%;
+              flex: 0 40%;
+      height: auto;
+      width: auto;
+      y-overflow: auto;
+      padding: 10px 15px 25px 15px;
+      border: 1px solid white;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      color: grey; }
+      #wrapper #content #suche h3 {
+        font-family: "Palatino Linotype", "Times New Roman", serif;
+        font-size: 140%;
+        color: #454545;
+        margin: 17px 0 23px 0;
+        letter-spacing: 1.5px; }
+      #wrapper #content #suche label {
+        margin: 0 197px 0 17px;
+        font-size: 80%;
+        min-width: 220px; }
+      #wrapper #content #suche input[type="text"] {
+        margin: 7px 17px 27px 17px;
+        padding: 3px;
+        min-width: 220px;
+        border: 1px solid silver;
+        background-color: white;
+        border-radius: 2px;
+        color: inherit; }
+      #wrapper #content #suche input[type="submit"] {
+        border: none;
+        padding: 5px;
+        width: 100px;
+        text-transform: uppercase;
+        margin: 17px 0 0 0;
+        border-radius: 2px;
+        background-color: white;
+        border: 1px solid silver;
+        color: #454545;
+        cursor: pointer; }
+      #wrapper #content #suche input[type="submit"]:hover {
+        background-color: #f3f3f3; }
+
+/*# sourceMappingURL=style.css.map */

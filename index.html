@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inscriptiones Tegularum</title>
+
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
+        
+
+</head>
+<body>
+	<section id="wrapper">
+		<div id='map'></div>
+		<script>
+			mapboxgl.accessToken = 'pk.eyJ1IjoibWFqaWdhZSIsImEiOiJjajNmb3NveGwwMDBmMzJucnNsMnlxOXI0In0.B6W5ZgYAyPtEH9i662E5DQ';
+			var map = new mapboxgl.Map({
+			    container: 'map', // container id
+			    style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
+			    center: [-74.50, 40], // starting position
+			    zoom: 9 // starting zoom
+			});
+		</script>
+
+		<section id="header">
+			<div id="logo">
+				<h1><a href="index.html">Inscriptiones Tegularum</a></h1>
+			</div>
+			<div id="default-navigation">
+				<ul>
+					<li><a href="">Karte</a></li>
+					<li><a href="">Über das Projekt</a></li>
+					<li><a href="">Kontakt</a></li>
+				</ul>
+			</div>
+			<div id="small-navigation">
+				<button><img alt="menu-button" src="menu.svg"></button>
+			</div>
+		</section>
+		<section id="content">
+			<section id="suche">
+				<h3>Suchabfrage</h3>
+				<form method="post" action="">
+					<label>Nummer</label>
+					<label>Nummer</label><br>
+					<input type="text" name="nummer">
+					<input type="text" name="inschrift"><br>
+					<label>Nummer</label>
+					<label>Nummer</label><br>
+					<input type="text" name="nummer">
+					<input type="text" name="inschrift"><br>
+					<label>Nummer</label>
+					<label>Nummer</label><br>
+					<input type="text" name="nummer">
+					<input type="text" name="inschrift"><br>
+					<label>Nummer</label>
+					<label>Nummer</label><br>
+					<input type="text" name="nummer">
+					<input type="text" name="inschrift"><br>
+					<label>Nummer</label>
+					<label>Nummer</label><br>
+					<input type="text" name="nummer">
+					<input type="text" name="inschrift"><br>
+					<input type="submit" name="submit" value="Suchen">
+				</form>
+			</section>
+		</section>
+	</section>
+
+</body>
+</html>

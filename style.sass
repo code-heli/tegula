@@ -1,0 +1,155 @@
+html, body
+	border: 0
+	padding: 0
+	margin: 0
+	font-family: 'Arial', sans-serif
+
+#wrapper
+	width: 100%
+	min-height: 90vh
+	display: flex
+	flex-flow: column
+	position: relative
+	//background-color: lightsteelblue
+
+	#map 
+		position: absolute
+		top: 5vh
+		bottom: 0
+		width: 100%
+		height: 95vh
+		z-index: 50
+
+
+
+	#header
+		flex: 1 100%
+		background-color: white
+		max-height: 50px
+		//padding: 5px
+		//border-bottom: 1px solid silver
+		z-index: 100
+		display: flex
+		flex-flow: row wrap
+
+		#logo
+			flex: 1 40%
+			margin: 7px 0 7px 7%
+			text-align: left
+
+			h1
+				margin: 0 
+				font-family: 'Palatino Linotype', 'Times New Roman', serif
+				letter-spacing: 1.5px
+				font-size: 150%
+
+				a
+					text-decoration: none
+					color: #454545
+
+
+		#default-navigation
+			flex: 1 40%
+			text-align: right
+			margin: 0 7% 0 0 
+
+			ul
+
+				li
+					list-style-type: none
+					text-transform: uppercase
+					margin: 0 5px
+					display: inline-block
+					font-size: 100%
+					padding: 0 10px 13px 10px
+
+					a 
+						text-decoration: none
+						color: darkgrey
+
+					a:hover, a:active
+						color: #454545
+
+			@media screen and (max-width: 1000px)
+				display: none
+
+		#small-navigation
+			flex: 1 40%
+			display: none
+			text-align: right
+			margin: 5px 7% 0 0 
+
+			button
+				height: 45px
+				width: 100px
+				border: none
+				background-color: white
+
+			@media screen and (max-width: 1000px)
+				display: block
+
+
+	#content
+		flex: 1 100%
+		background-color: rgba(255, 255, 255, 0.4)
+		border-bottom: 1px solid white
+		box-shadow: 5px 0 7px grey
+		display: flex
+		justify-content: center
+		align-items: center
+		z-index: 90
+
+		#suche
+			flex: 0 40%
+			height: auto
+			width: auto
+			y-overflow: auto
+			padding: 10px 15px 25px 15px
+			border: 1px solid white
+			border-radius: 5px
+			background-color: rgba(255, 255, 255, 0.9)
+			text-align: center
+			color: grey
+
+			h3
+				font-family: 'Palatino Linotype', 'Times New Roman', serif
+				font-size: 140%
+				color: #454545
+				margin: 17px 0 23px 0
+				letter-spacing: 1.5px
+
+			label
+				margin: 0 197px 0 17px
+				font-size: 80%
+				min-width: 220px
+
+			input[type="text"]
+				margin: 7px 17px 27px 17px
+				padding: 3px
+				min-width: 220px
+				border: 1px solid silver
+				background-color: white
+				border-radius: 2px
+				color: inherit
+
+			input[type="submit"]
+				border: none
+				padding: 5px
+				width: 100px
+				text-transform: uppercase
+				margin: 17px 0 0 0
+				border-radius: 2px
+				background-color: white
+				border: 1px solid silver
+				color: #454545
+				cursor: pointer
+
+			input[type="submit"]:hover
+				background-color: #f3f3f3
+
+
+
+
+
+
+
